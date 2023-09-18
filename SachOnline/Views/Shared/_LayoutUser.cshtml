@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHÀ SÁCH ONLINE</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .imgbook {
+            transition: all 1s ease-in;
+            width: 200px;
+            height: 300px;
+        }
+
+        .imgbook:hover {
+            transform: scale(0.9);
+            cursor: pointer;
+        }
+
+        .imgsachbannhieu {
+            width: 100px;
+        }
+        .menu{
+            width: 200px;
+            float: left;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                nav ul li {
+                    display: inline;
+                }
+
+                    nav ul li a {
+                        text-decoration: none;
+                        padding: 8px;
+                    }
+
+                        nav ul li a:hover {
+                            background-color: #ddd;
+                        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">SachOnline</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Sách theo chủ đề</a></li>
+            <li><a href="#">Sách theo NXB</a></li>
+            <li>
+                <form action="/tim-kiem" method="get">
+                    <input type="text" name="q" placeholder="Tìm kiếm...">
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        @Html.Action("ChuDePartial", "SachOnline")
+        @Html.Partial("NhaXuatBanPartial")
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        @RenderBody()
+    </div>
+    <div>
+        @RenderSection("SachBanNhieu", required: false)
+    </div>
+</body>
+</html>
